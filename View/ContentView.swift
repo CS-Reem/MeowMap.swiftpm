@@ -47,11 +47,11 @@ struct ContentView: View {
             VStack(spacing: 0) {
                 Group {
                     if viewModel.isLoading {
-                        BadgeView(text: "🔍 Searching...")
+                        BadgeView(text: "Searching...")
                     } else if viewModel.selectedCoordinate != nil {
-                        BadgeView(text: "📍 \(viewModel.annotations.count) places · \(Int(viewModel.searchRadiusMeters))m")
+                        BadgeView(text: " \(viewModel.annotations.count) places · \(Int(viewModel.searchRadiusMeters))m")
                     } else {
-                        BadgeView(text: "👆 Tap map to set search center")
+                        BadgeView(text: "Tap on the map where your cat was last seen")
                     }
                 }
                 .padding(.top, 12)
@@ -75,8 +75,8 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 12)
-                    .background(.orange)
-                    .cornerRadius(30)
+                    .background(Color("appColor"))
+                    .cornerRadius(15)
                     .shadow(radius: 6)
                 }
                 .padding(.bottom, 40)
@@ -94,19 +94,19 @@ struct ContentView: View {
                 viewModel.updateRadius(for: date)
                 showRadiusAlert = true
             }
-            .presentationDetents([.medium, .large])
+            .presentationDetents([.fraction(0.85), .large])
             .presentationDragIndicator(.visible)
         }
-        .alert("🔵 Search Radius Updated", isPresented: $showRadiusAlert) {
+        .alert("Search Range Updated", isPresented: $showRadiusAlert) {
             Button("Got it!", role: .cancel) { }
         } message: {
-            Text("""
-            📅 Months missing: \(monthsLost)
-            📏 New radius: \(Int(viewModel.searchRadiusMeters))m
-            🧮 Formula: 500 + (\(monthsLost) × 20)m
-
-            \(viewModel.selectedCoordinate != nil ? "Tap the map to re-search with the new radius." : "Now tap the map to start searching.")
-            """)
+//            Text("""
+//            Months missing: \(monthsLost)
+//            search range: \(Int(viewModel.searchRadiusMeters))m
+//            
+//
+//            \(viewModel.selectedCoordinate != nil ? "Tap the map to research with the new radius." : "Now tap the map to start searching.")
+//            """)
         }
     }
 }

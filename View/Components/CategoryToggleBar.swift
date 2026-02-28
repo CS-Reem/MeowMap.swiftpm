@@ -17,12 +17,12 @@ struct CategoryToggleBar: View {
                     .padding(.vertical, 7)
                     .background(isActive ? category.swiftUIColor : Color(.systemGray5))
                     .foregroundStyle(isActive ? .white : .secondary)
-                    .cornerRadius(20)
+                    .cornerRadius(15)
                 }
             }
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
-        .background(.ultraThinMaterial)
+        //.background(.ultraThinMaterial)
     }
 }

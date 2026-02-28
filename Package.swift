@@ -19,7 +19,7 @@ let package = Package(
             bundleIdentifier: "com.reem.MeowMap",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .binoculars),
+            appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.purple),
             supportedDeviceFamilies: [
                 .pad,

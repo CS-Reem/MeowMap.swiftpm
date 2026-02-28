@@ -18,31 +18,31 @@ struct LostDateSheet: View {
 
     var body: some View {
         VStack(spacing: 20) {
-
+            
             // Handle bar
-            Capsule()
-                .fill(Color.secondary.opacity(0.4))
-                .frame(width: 40, height: 5)
-                .padding(.top, 12)
-
+            //            Capsule()
+            //                .fill(Color.secondary.opacity(0.4))
+            //                .frame(width: 40, height: 5)
+            //                .padding(.top, 12)
+            VStack{
             // Title
             HStack(spacing: 8) {
-                Image(systemName: "cat.fill").foregroundStyle(.orange).font(.title2)
-                Text("When was your cat last seen?").font(.headline)
-            }
-
+                Image(systemName: "cat.fill").foregroundStyle(Color("appColor")
+                ).font(.title)
+                Text("When was your cat last seen?").font(.title2).bold()
+            }.padding(.top)
             // Date picker
             DatePicker("", selection: $lostDate, in: ...Date(), displayedComponents: .date)
                 .datePickerStyle(.graphical)
                 .padding(.horizontal)
-
+        }
             // Live preview card
             HStack(spacing: 0) {
-                statCell(value: "\(monthsLost)", label: "months\nmissing", color: .orange)
+                statCell(value: "\(monthsLost)", label: "months missing", color: Color("appColor"))
                 Divider().frame(height: 50)
-                statCell(value: "\(Int(newRadius))m", label: "search\nradius", color: .blue)
-                Divider().frame(height: 50)
-                statCell(value: "500+(\(monthsLost)×20)", label: "formula", color: .purple, isSmall: true)
+                statCell(value: "\(Int(newRadius))m", label: "search range", color: Color("appColor"))
+//                Divider().frame(height: 50)
+//                statCell(value: "500+(\(monthsLost)×20)", label: "formula", color: .purple, isSmall: true)
             }
             .padding()
             .background(.regularMaterial)
@@ -58,7 +58,7 @@ struct LostDateSheet: View {
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(.orange)
+                    .background(Color("appColor"))
                     .foregroundStyle(.white)
                     .cornerRadius(16)
                     .padding(.horizontal)

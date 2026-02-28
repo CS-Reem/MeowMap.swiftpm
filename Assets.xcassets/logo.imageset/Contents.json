@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Assets cats palm.png",
+      "filename" : "catp.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Assets cats palm 1.png",
+      "filename" : "catp 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Assets cats palm 2.png",
+      "filename" : "catp 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

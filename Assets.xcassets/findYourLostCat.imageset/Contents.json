@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "FindYourLostCat.png",
+      "filename" : "title.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "FindYourLostCat 1.png",
+      "filename" : "title 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "FindYourLostCat 2.png",
+      "filename" : "title 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -23,20 +23,27 @@ enum PlaceCategory: String, CaseIterable, Identifiable {
         }
     }
 
+//    var color: UIColor {
+//        switch self {
+//        case .restaurant: return .systemOrange
+//        case .mosque:     return .systemGreen
+//        case .park:       return .systemTeal
+//        }
+//    }
+//
+//    var swiftUIColor: Color {
+//        switch self {
+//        case .restaurant: return Color("appColor")
+//        case .mosque:     return Color("appColor")
+//        case .park:       return Color("appColor")
+//        }
+//    }
     var color: UIColor {
-        switch self {
-        case .restaurant: return .systemOrange
-        case .mosque:     return .systemGreen
-        case .park:       return .systemTeal
-        }
+        UIColor(named: "appColor") ?? .systemOrange
     }
 
     var swiftUIColor: Color {
-        switch self {
-        case .restaurant: return .orange
-        case .mosque:     return .green
-        case .park:       return .teal
-        }
+        Color("appColor")
     }
 
     var filter: MKPointOfInterestFilter? {

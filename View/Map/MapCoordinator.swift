@@ -24,7 +24,7 @@ final class MapCoordinator: NSObject, MKMapViewDelegate {
 
         let pin       = MKPointAnnotation()
         pin.coordinate = coordinate
-        pin.title      = "📍 Search Center"
+        pin.title      = ""
         map.addAnnotation(pin)
         centerPin = pin
 
@@ -35,7 +35,7 @@ final class MapCoordinator: NSObject, MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let point = annotation as? MKPointAnnotation {
-            return makePinView(for: point, in: mapView, id: "CenterPin", icon: "mappin", color: .systemPurple)
+            return makePinView(for: point, in: mapView, id: "CenterPin", icon: "cat.fill", color: .systemPurple)
         }
         if let place = annotation as? PlaceAnnotation {
             return makePinView(for: place, in: mapView, id: "PlacePin-\(place.category.rawValue)",
@@ -44,11 +44,20 @@ final class MapCoordinator: NSObject, MKMapViewDelegate {
         return nil
     }
 
+//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//        guard let circle = overlay as? MKCircle else { return MKOverlayRenderer() }
+//        let renderer          = MKCircleRenderer(circle: circle)
+//        renderer.fillColor    = UIColor.systemBlue.withAlphaComponent(0.1)
+//        renderer.strokeColor  = .systemBlue
+//        renderer.lineWidth    = 2
+//        return renderer
+//    }
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let circle = overlay as? MKCircle else { return MKOverlayRenderer() }
         let renderer          = MKCircleRenderer(circle: circle)
-        renderer.fillColor    = UIColor.systemBlue.withAlphaComponent(0.1)
-        renderer.strokeColor  = .systemBlue
+        renderer.fillColor    = UIColor(named: "appColor")?.withAlphaComponent(0.1)
+        renderer.strokeColor  = UIColor(named: "appColor")
         renderer.lineWidth    = 2
         return renderer
     }
